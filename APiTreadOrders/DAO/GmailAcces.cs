@@ -34,7 +34,7 @@ namespace APiTreadOrders.DAO
 
             // Fetch the last email (the newest one)
             var request = service.Users.Messages.List("me");
-            request.Q = "is:inbox"; // Only retrieve emails in the inbox
+            request.Q = "from:noreply@carinabot.com is:inbox"; // Only retrieve emails in the inbox
             request.MaxResults = 1;
             var response = request.Execute();
             var lastEmail = response.Messages?.FirstOrDefault();
