@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace NotifierMail
 {
-    internal class TreadOrder
+    public class TreadOrder
     {
+        public string Type { get; set; }
+        public DateTime OrderDateTimeUTC { get; set; }
+        public double TakeProfits { get; set; }
     }
 }

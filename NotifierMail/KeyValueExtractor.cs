@@ -35,6 +35,8 @@ public class KeyValueExtractor
                     if (keys.Contains(key)) { 
                     string value = strongElement.NextSibling?.InnerText?.Trim();
 
+
+
                     Console.WriteLine($"{key} : {value}");
                     }
                 }
