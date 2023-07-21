@@ -51,5 +51,16 @@ namespace APiTreadOrders.DAO
             return null; // No emails found
         }
 
+        public static bool ValidateMail(Message lastEmail)
+        {
+
+            var dateTimeHeader = lastEmail.Payload.Headers.FirstOrDefault(header => header.Name == "Date");
+            string dateTimeString = dateTimeHeader?.Value;
+            DateTime ReciveddateTime = Tools.ConvertUtcTimeStringToDateTime(dateTimeString);
+            DateTime NowdateTime = DateTime.UtcNow;
+
+
+            return false;
+        }
     }
 }
