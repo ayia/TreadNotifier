@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\linuxApp\Treading</_PublishTargetUrl>
+    <History>True|2023-07-22T19:02:28.8338915Z;True|2023-07-22T19:57:31.2820531+01:00;False|2023-07-22T19:54:34.9707203+01:00;False|2023-07-22T19:52:04.3816130+01:00;True|2023-07-22T17:46:32.6965686+01:00;False|2023-07-22T17:45:38.0054040+01:00;False|2023-07-22T17:43:41.4280838+01:00;True|2023-07-22T17:40:36.7739596+01:00;True|2023-07-22T17:38:55.5051904+01:00;False|2023-07-22T17:38:10.4424658+01:00;False|2023-07-22T17:37:35.1313948+01:00;True|2023-07-22T17:28:48.3038719+01:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

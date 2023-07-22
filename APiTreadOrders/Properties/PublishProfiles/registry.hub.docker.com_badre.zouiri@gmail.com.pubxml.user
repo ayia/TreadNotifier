@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5W6PnDpcDEutSOIJu6vuQQAAAAACAAAAAAAQZgAAAAEAACAAAAC7vojD/qRKx0+G7AEO04BsizVirhydCpF75Ts6vQWR4QAAAAAOgAAAAAIAACAAAAAlquJD2oh9jx3GLW2ubR1g7PS/ObNnoFCwmf2gD+3fZyAAAAAX8N7HZSEjs9gbl4UR8uIaPUC7zgUoeibEo+/dQT5FVkAAAACz1q9kPhCGG7kPusKhpZgdjV0TleNib/voSzCJujV7FyIi54/5aQE5JfaVdAHrQgk3n/niw6bKq9x+lCWW8Hkf</EncryptedPassword>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <History>False|2023-07-22T17:09:13.1948596Z;</History>
+    <LastFailureDetails>2023-07-22T17:09:13.1948596Z|checkNetSdkContainerPrereq</LastFailureDetails>
+  </PropertyGroup>
+</Project>
