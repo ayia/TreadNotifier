@@ -61,7 +61,6 @@ namespace APiTreadOrders.DAO
             string dateTimeString = dateTimeHeader?.Value;
             DateTime ReciveddateTime = Tools.ConvertUtcTimeStringToDateTime(dateTimeString);
             
-
             TimeSpan timeDifference = NowdateTime - ReciveddateTime;
 
             // Get the difference in minutes
