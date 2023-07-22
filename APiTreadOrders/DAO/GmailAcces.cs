@@ -66,7 +66,7 @@ namespace APiTreadOrders.DAO
 
             // Get the difference in minutes
             int minutesDifference = (int)timeDifference.TotalMinutes;
-            if (minutesDifference < 3 && minutesDifference >= 0)
+            if (minutesDifference < 2 && minutesDifference >= 0)
                 return true;
             return false;
         }

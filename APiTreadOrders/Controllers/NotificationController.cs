@@ -12,7 +12,7 @@ namespace APiTreadOrders.Controllers
     public class NotificationController : ControllerBase
     {
         [HttpGet(Name = "GetNotificationController")]
-        public TreadOrder? Get(string dateString)
+        public string Get(string dateString)
         {
            
             string format = "dd/MM/yyyy H:mm";
@@ -20,14 +20,15 @@ namespace APiTreadOrders.Controllers
 
 
             Message lastMessage = GmailAcces.ReadLastEmail();
-             TreadOrder tread = null;
+        
             if (GmailAcces.ValidateMail(lastMessage, excutiondatetime))
             {
-                tread = Tools.ExtractKeyValuePairs(Tools.GetMessageHtmlBody(lastMessage));
-
+                TreadOrder a= Tools.ExtractKeyValuePairs(Tools.GetMessageHtmlBody(lastMessage));
+                return a.Market + "|" + a.Type + "|" + a.TakeProfitePips;
             }
+            else
+                return string.Empty;
 
-            return tread;
         }
     }
 }
