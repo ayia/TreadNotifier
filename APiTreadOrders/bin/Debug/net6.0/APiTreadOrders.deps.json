@@ -9,6 +9,7 @@
       "APiTreadOrders/1.0.0": {
         "dependencies": {
           "Google.Apis.Gmail.v1": "1.61.0.3105",
+          "HtmlAgilityPack": "1.11.50",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
@@ -62,6 +63,14 @@
           "lib/netstandard2.0/Google.Apis.Gmail.v1.dll": {
             "assemblyVersion": "1.61.0.3105",
             "fileVersion": "1.61.0.3105"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.50": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.50.0",
+            "fileVersion": "1.11.50.0"
           }
         }
       },
@@ -155,6 +164,13 @@
       "sha512": "sha512-qC2/bj5h1esQ/unFA2ba/ZoZfVCm+RwOSZQSO5i4nllS6+95+xP8aW5hWPW8biBc7/Bf+RFAuEklublVFI25VA==",
       "path": "google.apis.gmail.v1/1.61.0.3105",
       "hashPath": "google.apis.gmail.v1.1.61.0.3105.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.50": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lxxkDIykfX2HgMZZdmU8gT4vWQvOUjkCsCXmSRaAGuAofyzUjIjJFJHWeBXk+dJ9af0qXJyJ/Td7dBbWQpgM3Q==",
+      "path": "htmlagilitypack/1.11.50",
+      "hashPath": "htmlagilitypack.1.11.50.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",
