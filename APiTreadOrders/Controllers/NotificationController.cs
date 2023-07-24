@@ -15,7 +15,7 @@ namespace APiTreadOrders.Controllers
         public string Get(string dateString)
         {
            
-            string format = "dd/MM/yyyy H:mm";
+            string format = "ddMMyyyyHHmm";
             DateTime excutiondatetime = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
 
 

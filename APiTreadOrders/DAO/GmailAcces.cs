@@ -56,7 +56,7 @@ namespace APiTreadOrders.DAO
         
         public static bool ValidateMail(Message lastEmail, DateTime NowdateTime)
         {
-
+            string subject = lastEmail.Payload.Headers.FirstOrDefault(header => header.Name == "Subject")?.Value;
             var dateTimeHeader = lastEmail.Payload.Headers.FirstOrDefault(header => header.Name == "Date");
             string dateTimeString = dateTimeHeader?.Value;
             DateTime ReciveddateTime = Tools.ConvertUtcTimeStringToDateTime(dateTimeString);
@@ -65,7 +65,7 @@ namespace APiTreadOrders.DAO
 
             // Get the difference in minutes
             int minutesDifference = (int)timeDifference.TotalMinutes;
-            if (minutesDifference < 2 && minutesDifference >= 0)
+            if ((minutesDifference < 2 && minutesDifference >= 0) && subject.ToUpper().StartsWith("Today".ToUpper()))
                 return true;
             return false;
         }
