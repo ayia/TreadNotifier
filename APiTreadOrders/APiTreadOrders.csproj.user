@@ -4,7 +4,7 @@
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
     <ActiveDebugProfile>WSL</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\BadreZOUIRI\source\repos\TreadNotifier\APiTreadOrders\Properties\PublishProfiles\registry.hub.docker.com_badre.eouiri%40gmail.com.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\BadreZOUIRI\source\repos\TreadNotifier\APiTreadOrders\Properties\PublishProfiles\FolderProfile4.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
