@@ -1,22 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "Ezo80APeAzXBy2ZIZeGTzE3RIF10mNi/4TdTFlPmeEC/W5kVXB0xsm3zSt7d/3TxDwiKHs/qgNq8PahEPfRzaQ==",
+  "dgSpecHash": "sfiwMdoS7rKZ06vWgSecADMfWrsGIdjl95P12eKvYrzWa17jsJe7kS654s2YUmG95Vl0k1hXROhb/7jwYq1ugQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\badre.zouiri.ext\\Desktop\\Cam\\IA\\TreadNotifier\\APiTreadOrders\\APiTreadOrders.csproj",
+  "projectFilePath": "C:\\Users\\BadreZOUIRI\\source\\repos\\TreadNotifier\\APiTreadOrders\\APiTreadOrders.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\google.apis.gmail.v1\\1.61.0.3105\\google.apis.gmail.v1.1.61.0.3105.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\htmlagilitypack\\1.11.50\\htmlagilitypack.1.11.50.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\microsoft.net.build.containers\\0.3.2\\microsoft.net.build.containers.0.3.2.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\google.apis.gmail.v1\\1.61.0.3105\\google.apis.gmail.v1.1.61.0.3105.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\htmlagilitypack\\1.11.50\\htmlagilitypack.1.11.50.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\microsoft.net.build.containers\\0.3.2\\microsoft.net.build.containers.0.3.2.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
   "logs": []
 }

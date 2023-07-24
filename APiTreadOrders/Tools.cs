@@ -2,6 +2,7 @@
 using Google.Apis.Gmail.v1.Data;
 using HtmlAgilityPack;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -41,7 +42,7 @@ namespace APiTreadOrders
 
             if (mainDiv != null)
             {
-                 a=new TreadOrder();
+                a = new TreadOrder();
                 // Extract the key-value pairs inside the <div>
                 var strongElements = mainDiv.SelectNodes(".//strong");
 
@@ -63,24 +64,25 @@ namespace APiTreadOrders
                                     a.Type = value;
                                     break;
                                 case "P/L":
-                                    string pattern = @"\+([\d.]+) pips";
+                                    // string pattern = @"\+([\d.]+) pips";
+                                    string pattern = @"\(([-+]?\d+(\.\d+)?)\spips\)";
 
                                     Match match = Regex.Match(value, pattern);
 
                                     if (match.Success)
                                     {
                                         string extractedValue = match.Groups[1].Value;
-                                       a.TakeProfitePips =Double.Parse(extractedValue);
+                                        a.TakeProfitePips = Math.Abs(Double.Parse(extractedValue, CultureInfo.InvariantCulture));
                                     }
                                     break;
-                               
+
                             }
 
                         }
                     }
                 }
 
-             
+
             }
             return a;
         }
