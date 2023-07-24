@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifierMail", "NotifierMail\NotifierMail.csproj", "{09350B5A-452C-4F48-A1D7-FFE13D492BFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APiTreadOrders", "APiTreadOrders\APiTreadOrders.csproj", "{D55774BB-3B5E-4AAE-8BE6-3F648A71332C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APiTreadOrders", "APiTreadOrders\APiTreadOrders.csproj", "{D55774BB-3B5E-4AAE-8BE6-3F648A71332C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotiFierAPIchartdepth", "NotiFierAPIchartdepth\NotiFierAPIchartdepth.csproj", "{F625E334-7FD0-4C8E-9F18-EED578B48144}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D55774BB-3B5E-4AAE-8BE6-3F648A71332C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D55774BB-3B5E-4AAE-8BE6-3F648A71332C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D55774BB-3B5E-4AAE-8BE6-3F648A71332C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F625E334-7FD0-4C8E-9F18-EED578B48144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F625E334-7FD0-4C8E-9F18-EED578B48144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F625E334-7FD0-4C8E-9F18-EED578B48144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F625E334-7FD0-4C8E-9F18-EED578B48144}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

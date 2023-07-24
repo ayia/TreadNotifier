@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\NotiFierAPIchartdepth.props" />
+</Project>
