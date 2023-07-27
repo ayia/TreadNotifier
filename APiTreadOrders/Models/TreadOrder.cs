@@ -4,6 +4,6 @@
     {
         public string Market { get; set; }
         public string Type { get; set; }
-        public double TakeProfitePips { get; set; }
+        public string TakeProfitePips { get; set; }
     }
 }

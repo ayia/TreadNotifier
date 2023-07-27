@@ -72,7 +72,7 @@ namespace APiTreadOrders
                                     if (match.Success)
                                     {
                                         string extractedValue = match.Groups[1].Value;
-                                        a.TakeProfitePips = Math.Abs(Double.Parse(extractedValue, CultureInfo.InvariantCulture));
+                                        a.TakeProfitePips = (Math.Abs(Double.Parse(extractedValue, CultureInfo.InvariantCulture))).ToString().Replace(",",".");
                                     }
                                     break;
 
