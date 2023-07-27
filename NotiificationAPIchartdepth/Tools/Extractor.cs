@@ -1,41 +1,85 @@
 ﻿using HtmlAgilityPack;
 using NotiificationAPIchartdepth.Models;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium;
+using System.Net;
+using System.Net.Http.Headers;
 using System.Xml;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 
 namespace NotiificationAPIchartdepth.Tools
 {
     public class Extractor
     {
-        public static async Task<string> GetHtmlAsync(string url)
-        {// Create an instance of HttpClient
-            using (HttpClient httpClient = new HttpClient())
+
+        public static async Task<CookieContainer> PerformLogin(string loginUrl, string username, string password)
+        {
+            EdgeOptions options = new EdgeOptions();
+
+            // Set up EdgeDriver
+            using (var driver = new EdgeDriver(options)) { 
+                // Navigate to the login page
+                driver.Navigate().GoToUrl(loginUrl);
+
+                // Find and fill in the login form fields
+                var usernameField = driver.FindElement(By.Name("email"));
+                var passwordField = driver.FindElement(By.Name("password"));
+
+                usernameField.SendKeys(username);
+                passwordField.SendKeys(password);
+
+                // Submit the login form
+                passwordField.Submit();
+
+                // Wait for the page to load or perform any necessary waits here
+
+                // Extract the cookies from the browser session
+                var cookies = driver.Manage().Cookies.AllCookies.ToList();
+
+              return  ConvertCookiesToCookieContainer(cookies);
+            } 
+                
+            }
+            private static CookieContainer ConvertCookiesToCookieContainer(List<OpenQA.Selenium.Cookie> cookies)
             {
-                try
+                var cookieContainer = new CookieContainer();
+
+            foreach (var cookie in cookies)
+            {
+                cookieContainer.Add(new Uri(cookie.Domain), new System.Net.Cookie(cookie.Name, cookie.Value));
+            }
+
+            return cookieContainer;
+            }
+            public static async Task<string> GetPageHtml(string pageUrl, CookieContainer cookieContainer)
+        {
+            using (var httpClientHandler = new HttpClientHandler() { CookieContainer = cookieContainer })
+            using (var httpClient = new HttpClient(httpClientHandler))
+            {
+                // Set the desired request headers, if needed
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/html"));
+
+                // Perform the request to fetch the HTML data
+                var response = await httpClient.GetAsync(pageUrl);
+
+                // Check if the request was successful
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    // Make an HTTP GET request to the URL
-                    HttpResponseMessage response = await httpClient.GetAsync(url);
-
-                    // Check if the request was successful
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Read the HTML content as a string
-                        string htmlContent = await response.Content.ReadAsStringAsync();
-
-                        // Now you have the HTML content as a string
-                        return (htmlContent);
-                    }
-                    else
-                    {
-                        return String.Empty;
-                    }
+                    // Read the HTML content as a string
+                    var html = await response.Content.ReadAsStringAsync();
+                    return html;
                 }
-                catch (HttpRequestException e)
+                else
                 {
-                    return String.Empty;
+                    // Handle request failure here
+                    // You can throw an exception or return null based on your requirements
+                    throw new Exception("Failed to fetch page HTML!");
                 }
             }
         }
-
+      
         public static List<HtmlNode> ExtractTables(string html)
         {
             var tables = new List<HtmlNode>();
@@ -114,18 +158,14 @@ namespace NotiificationAPIchartdepth.Tools
                         case "Open price":
                             signalData.OpenPrice = value;
                             break;
-                        case "Close price":
-                            signalData.ClosePrice = value;
-                            break;
+                     
                         case "Take Profit":
                             signalData.TakeProfit = value;
                             break;
                         case "Stop loss":
                             signalData.StopLoss = value;
                             break;
-                        case "Result":
-                            signalData.Result = value;
-                            break;
+                      
                             // Add more cases for other keys if needed
                     }
                 }

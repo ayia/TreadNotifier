@@ -2,5 +2,7 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.apidescription.server\3.0.0\build\Microsoft.Extensions.ApiDescription.Server.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.apidescription.server\3.0.0\build\Microsoft.Extensions.ApiDescription.Server.targets')" />
+    <Import Project="$(NuGetPackageRoot)selenium.webdriver.microsoftdriver\17.17134.0\build\Selenium.WebDriver.MicrosoftDriver.targets" Condition="Exists('$(NuGetPackageRoot)selenium.webdriver.microsoftdriver\17.17134.0\build\Selenium.WebDriver.MicrosoftDriver.targets')" />
+    <Import Project="$(NuGetPackageRoot)selenium.webdriver\4.10.0\buildTransitive\Selenium.WebDriver.targets" Condition="Exists('$(NuGetPackageRoot)selenium.webdriver\4.10.0\buildTransitive\Selenium.WebDriver.targets')" />
   </ImportGroup>
 </Project>
