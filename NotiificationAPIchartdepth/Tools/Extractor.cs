@@ -171,8 +171,7 @@ namespace NotiificationAPIchartdepth.Tools
 
                             // Find all matches in the input string.
                             MatchCollection matches = regex.Matches(value);
-
-                            // Extract the numeric values from the matches and store them in an array.
+                        // Extract the numeric values from the matches and store them in an array.
                             string[] numericValues = new string[matches.Count];
                             for (int i = 0; i < matches.Count; i++)
                             {
