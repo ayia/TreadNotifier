@@ -1,12 +1,10 @@
 ﻿using HtmlAgilityPack;
 using NotiificationAPIchartdepth.Models;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium;
+using System.Globalization;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using System.Xml;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
 
 namespace NotiificationAPIchartdepth.Tools
 {
@@ -15,44 +13,44 @@ namespace NotiificationAPIchartdepth.Tools
 
         public static async Task<CookieContainer> PerformLogin(string loginUrl, string username, string password)
         {
-            EdgeOptions options = new EdgeOptions();
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, loginUrl+"?email="+username+"&password="+password);
+            request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0");
+            request.Headers.Add("Accept", "*/*");
+            request.Headers.Add("Accept-Language", "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3");
+            request.Headers.Add("Accept-Encoding", "gzip, deflate, br");
+            request.Headers.Add("X-Requested-With", "XMLHttpRequest");
+            request.Headers.Add("Connection", "keep-alive");
+            request.Headers.Add("Referer", "https://www.chartdepth.com/user/login");
+            request.Headers.Add("Sec-Fetch-Dest", "empty");
+            request.Headers.Add("Sec-Fetch-Mode", "cors");
+            request.Headers.Add("Sec-Fetch-Site", "same-origin");
+            request.Headers.Add("Pragma", "no-cache");
+            request.Headers.Add("Cache-Control", "no-cache");
+            // request.Headers.Add("Cookie", "XSRF-TOKEN=eyJpdiI6IlBRZGVQRXNpY1dVWjFLcWpOSCt0XC93PT0iLCJ2YWx1ZSI6IkJFNmZsR29vNVN1Sk02bStIeUNTVTlDSGtjbmh5djZKQTlFQndXXC9HRGZKXC9kaUpmb0xLTG9BV0xiRXVNTWtNMyIsIm1hYyI6ImIwMGUwMzM4NTkxMGNlZmUwMGJkNzM5YzA0ZTVmZDM2YmFlMDg2MjEwMTQzNmQ0Yjg1ZGJkNDkxNDQxMDI4ZjMifQ%3D%3D; lang_prod=eyJpdiI6IlhWT2FJUVFoSzBnWXlFb2l0eVZESnc9PSIsInZhbHVlIjoiY09MUXg0Y1pVMzl4WStjbXE2WHZRUT09IiwibWFjIjoiMDMxOTI3YmYyYjc1ZTk2ZTRhZGRiZGFkOWY4ZDQ1ZjFlYjIwOTYzMjlmZDZmYTViYTZmMzg0MGEyZDZiMmU1NyJ9; laravel_session_prod=eyJpdiI6InRNeVIwalNYRE5pa29VZVJMT3dIMEE9PSIsInZhbHVlIjoiNUN4cHdDZXJEcnBtVGxuK1RteThXYitGT3RPeGR4TlNYYStycTRvZjFJaXhJcTZcLzliNWVIVjNjSnhHV0ZabzYiLCJtYWMiOiIzNTEwMzZmNDc4NGE2ZjIxMzBkNmI5NGViOGEwNTNkZjEyZWYwNmQ4ZmJkYzM5MWVjNzk0NDIwNjRlMjgwZjMyIn0%3D");
+            var loginResponse = await client.SendAsync(request);
 
-            // Set up EdgeDriver
-            using (var driver = new EdgeDriver(options)) { 
-                // Navigate to the login page
-                driver.Navigate().GoToUrl(loginUrl);
+            // Create a new CookieContainer to store the cookies.
+            var cookieContainer = new CookieContainer();
 
-                // Find and fill in the login form fields
-                var usernameField = driver.FindElement(By.Name("email"));
-                var passwordField = driver.FindElement(By.Name("password"));
+            // Get the URI of the login response to associate the cookies with the correct domain.
+            var responseUri = loginResponse.RequestMessage.RequestUri;
 
-                usernameField.SendKeys(username);
-                passwordField.SendKeys(password);
-
-                // Submit the login form
-                passwordField.Submit();
-
-                // Wait for the page to load or perform any necessary waits here
-
-                // Extract the cookies from the browser session
-                var cookies = driver.Manage().Cookies.AllCookies.ToList();
-
-              return  ConvertCookiesToCookieContainer(cookies);
-            } 
-                
-            }
-            private static CookieContainer ConvertCookiesToCookieContainer(List<OpenQA.Selenium.Cookie> cookies)
+            // Get the Set-Cookie header(s) from the response.
+            if (loginResponse.Headers.TryGetValues("Set-Cookie", out var cookieHeaders))
             {
-                var cookieContainer = new CookieContainer();
-
-            foreach (var cookie in cookies)
-            {
-                cookieContainer.Add(new Uri(cookie.Domain), new System.Net.Cookie(cookie.Name, cookie.Value));
+                // Parse the Set-Cookie headers and add the cookies to the CookieContainer.
+                foreach (var cookieHeader in cookieHeaders)
+                {
+                    cookieContainer.SetCookies(responseUri, cookieHeader);
+                }
             }
-
             return cookieContainer;
-            }
-            public static async Task<string> GetPageHtml(string pageUrl, CookieContainer cookieContainer)
+
+
+
+        }
+        public static async Task<string> GetPageHtml(string pageUrl, CookieContainer cookieContainer)
         {
             using (var httpClientHandler = new HttpClientHandler() { CookieContainer = cookieContainer })
             using (var httpClient = new HttpClient(httpClientHandler))
@@ -79,7 +77,7 @@ namespace NotiificationAPIchartdepth.Tools
                 }
             }
         }
-      
+
         public static List<HtmlNode> ExtractTables(string html)
         {
             var tables = new List<HtmlNode>();
@@ -95,7 +93,7 @@ namespace NotiificationAPIchartdepth.Tools
             return tables;
         }
 
-       public static List<List<KeyValuePair<string, string>>> ExtractTableData(string html)
+        public static List<List<KeyValuePair<string, string>>> ExtractTableData(string html)
         {
             var tableData = new List<List<KeyValuePair<string, string>>>();
             var doc = new HtmlDocument();
@@ -156,16 +154,39 @@ namespace NotiificationAPIchartdepth.Tools
                             signalData.Type = value;
                             break;
                         case "Open price":
-                            signalData.OpenPrice = value;
+                            string[] parts = value.Split('\n');
+
+                            signalData.OpenPrice = parts[0];
+                            string format = "yyyy-MM-dd HH:mm";
+
+                            signalData.OpenTime= DateTime.ParseExact(parts[1], format, CultureInfo.InvariantCulture);
                             break;
-                     
+
                         case "Take Profit":
-                            signalData.TakeProfit = value;
+                            // Define the regular expression pattern to match numeric values.
+                            string pattern = @"\d+\.\d+";
+
+                            // Create a regular expression object.
+                            Regex regex = new Regex(pattern);
+
+                            // Find all matches in the input string.
+                            MatchCollection matches = regex.Matches(value);
+
+                            // Extract the numeric values from the matches and store them in an array.
+                            string[] numericValues = new string[matches.Count];
+                            for (int i = 0; i < matches.Count; i++)
+                            {
+                                numericValues[i] = matches[i].Value;
+                            }
+                            signalData.TakeProfit1 = numericValues[0];
+                            signalData.TakeProfit2 = numericValues[1];
+
+                            // signalData.TakeProfit = value;
                             break;
                         case "Stop loss":
                             signalData.StopLoss = value;
                             break;
-                      
+
                             // Add more cases for other keys if needed
                     }
                 }
@@ -176,8 +197,9 @@ namespace NotiificationAPIchartdepth.Tools
             return signalDataList;
         }
     }
-
 }
+
+
 
 
     
