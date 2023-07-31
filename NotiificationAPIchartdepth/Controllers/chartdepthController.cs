@@ -45,7 +45,7 @@ namespace NotiificationAPIchartdepth.Controllers
                 foreach (SignalData ip in todayList)
                 {
 
-                     concatenatedValues = $"{ip.Instrument}|{ip.Action}||{ip.OpenTime.ToString("ddMMyyyyHHmm")}||{ip.OpenTime}|{ip.TakeProfit1}|{ip.StopLoss}"+"\n";
+                     concatenatedValues = $"{ip.Instrument}|{ip.Action}|{ip.OpenTime.ToString("ddMMyyyyHHmm")}||{ip.OpenPrice}|{ip.TakeProfit1}|{ip.StopLoss}"+"\n";
 
                 }
 
