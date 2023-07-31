@@ -158,6 +158,7 @@ namespace NotiificationAPIchartdepth.Tools
 
                             signalData.OpenPrice = parts[0];
                             string format = "yyyy-MM-dd HH:mm";
+                       
 
                             signalData.OpenTime= DateTime.ParseExact(parts[1], format, CultureInfo.InvariantCulture);
                             break;
