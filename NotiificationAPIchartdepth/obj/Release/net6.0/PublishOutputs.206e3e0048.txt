@@ -1,0 +1,17 @@
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\NotiificationAPIchartdepth.exe
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\selenium-manager\linux\selenium-manager
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\selenium-manager\macos\selenium-manager
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\selenium-manager\windows\selenium-manager.exe
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\NotiificationAPIchartdepth.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\NotiificationAPIchartdepth.deps.json
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\NotiificationAPIchartdepth.runtimeconfig.json
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\NotiificationAPIchartdepth.pdb
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\HtmlAgilityPack.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\WebDriver.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

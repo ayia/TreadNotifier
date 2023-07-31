@@ -145,22 +145,22 @@ namespace NotiificationAPIchartdepth.Tools
                     switch (key)
                     {
                         case "Instrument":
-                            signalData.Instrument = value;
+                            signalData.Instrument = value.Trim();
                             break;
                         case "Action":
-                            signalData.Action = value;
+                            signalData.Action = value.Trim();
                             break;
                         case "Type":
-                            signalData.Type = value;
+                            signalData.Type = value.Trim();
                             break;
                         case "Open price":
                             string[] parts = value.Split('\n');
 
-                            signalData.OpenPrice = parts[0];
+                            signalData.OpenPrice = parts[0].Trim();
                             string format = "yyyy-MM-dd HH:mm";
                        
 
-                            signalData.OpenTime= DateTime.ParseExact(parts[1], format, CultureInfo.InvariantCulture);
+                            signalData.OpenTime= DateTime.ParseExact(parts[1].Trim(), format, CultureInfo.InvariantCulture);
                             break;
 
                         case "Take Profit":
@@ -178,13 +178,13 @@ namespace NotiificationAPIchartdepth.Tools
                             {
                                 numericValues[i] = matches[i].Value;
                             }
-                            signalData.TakeProfit1 = numericValues[0];
-                            signalData.TakeProfit2 = numericValues[1];
+                            signalData.TakeProfit1 = numericValues[0].Trim();
+                            signalData.TakeProfit2 = numericValues[1].Trim();
 
                             // signalData.TakeProfit = value;
                             break;
                         case "Stop loss":
-                            signalData.StopLoss = value;
+                            signalData.StopLoss = value.Trim();
                             break;
 
                             // Add more cases for other keys if needed

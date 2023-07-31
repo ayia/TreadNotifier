@@ -33,22 +33,22 @@ namespace NotiificationAPIchartdepth.Controllers
             {
                 string html = await Extractor.GetPageHtml(pageUrl, cookieContainer);
                 List<HtmlNode> data = Extractor.ExtractTables(html);
-                var tableData = Extractor.ExtractTableData(data.ToArray()[0].OuterHtml);
+                var tableData = Extractor.ExtractTableData(data.ToArray()[1].OuterHtml);
+             
                 List<SignalData> todayList = Extractor.ParseToSignalDataList(tableData)
                     .Where(signal => signal.OpenTime.Date == today
-                   // && Math.Abs((excutiondatetime - signal.OpenTime).TotalMinutes) == 0
-                     //&& Math.Abs((excutiondatetime - signal.OpenTime).TotalMinutes) < 2
-
+                    && Math.Abs((excutiondatetime - signal.OpenTime).TotalMinutes) > 0
+                     && Math.Abs((excutiondatetime - signal.OpenTime).TotalMinutes) < 2
                     ).ToList();
                 ;
                 string concatenatedValues=null ;
 
-                foreach (SignalData ip in todayList)
-                {
+                //foreach (SignalData ip in todayList)
+                //{
+                if(todayList.Any())
+                     concatenatedValues = concatenatedValues+$"{todayList.First().Instrument}|{todayList.First().Action}|{todayList.First().OpenTime.ToString("ddMMyyyyHHmm")}|{todayList.First().OpenPrice}|{todayList.First().TakeProfit1}|{todayList.First().StopLoss}"+"\n";
 
-                     concatenatedValues = concatenatedValues+$"{ip.Instrument}|{ip.Action}|{ip.OpenTime.ToString("ddMMyyyyHHmm")}||{ip.OpenPrice}|{ip.TakeProfit1}|{ip.StopLoss}"+"\n";
-
-                }
+                //}
 
 
                 return concatenatedValues;

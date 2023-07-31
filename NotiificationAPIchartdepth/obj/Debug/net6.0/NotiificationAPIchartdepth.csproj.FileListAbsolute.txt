@@ -68,3 +68,9 @@ C:\Users\badre.zouiri.ext\Desktop\Cam\IA\TreadNotifier\NotiificationAPIchartdept
 C:\Users\badre.zouiri.ext\Desktop\Cam\IA\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
 C:\Users\badre.zouiri.ext\Desktop\Cam\IA\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\badre.zouiri.ext\Desktop\Cam\IA\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\WebDriver.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\HtmlAgilityPack.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\BadreZOUIRI\source\repos\TreadNotifier\NotiificationAPIchartdepth\bin\Debug\net6.0\WebDriver.dll
