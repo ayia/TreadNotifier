@@ -387,23 +387,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BadreZOUIRI\\source\\repos\\TreadNotifier\\NotiificationAPIchartdepth\\NotiificationAPIchartdepth.csproj",
+      "projectUniqueName": "C:\\Users\\badre.zouiri.ext\\Desktop\\Cam\\IA\\TreadNotifier\\NotiificationAPIchartdepth\\NotiificationAPIchartdepth.csproj",
       "projectName": "NotiificationAPIchartdepth",
-      "projectPath": "C:\\Users\\BadreZOUIRI\\source\\repos\\TreadNotifier\\NotiificationAPIchartdepth\\NotiificationAPIchartdepth.csproj",
-      "packagesPath": "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BadreZOUIRI\\source\\repos\\TreadNotifier\\NotiificationAPIchartdepth\\obj\\",
+      "projectPath": "C:\\Users\\badre.zouiri.ext\\Desktop\\Cam\\IA\\TreadNotifier\\NotiificationAPIchartdepth\\NotiificationAPIchartdepth.csproj",
+      "packagesPath": "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\badre.zouiri.ext\\Desktop\\Cam\\IA\\TreadNotifier\\NotiificationAPIchartdepth\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\BadreZOUIRI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\badre.zouiri.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -465,7 +461,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

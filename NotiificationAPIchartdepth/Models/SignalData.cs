@@ -11,7 +11,10 @@
         public string TakeProfit1 { get; set; }
         public string TakeProfit2 { get; set; }
         public string StopLoss { get; set; }
-       
+
+        public string ProgressTP { get; set; }
+        public string ProgressSL { get; set; }
+
 
         // Additional methods or constructors can be added as needed.
     }

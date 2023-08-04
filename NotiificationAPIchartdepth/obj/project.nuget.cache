@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "WWrhane86LlTO5r+q2AupUKXa4l0jqrkBPuroHAXh00fdMkK52zxYpZ21oWy8ZQ9xx806UAfN30g/a9bqqYHMg==",
+  "dgSpecHash": "42fp/DJMJ4xrQnck9OC4mGu98yMPTWuSzC72hv+4RReNrIWPRf5TcjOlHUW/SSnsB5lLjP/Rj5YTBW4yRyB2EA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BadreZOUIRI\\source\\repos\\TreadNotifier\\NotiificationAPIchartdepth\\NotiificationAPIchartdepth.csproj",
+  "projectFilePath": "C:\\Users\\badre.zouiri.ext\\Desktop\\Cam\\IA\\TreadNotifier\\NotiificationAPIchartdepth\\NotiificationAPIchartdepth.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\htmlagilitypack\\1.11.50\\htmlagilitypack.1.11.50.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\selenium.webdriver\\4.10.0\\selenium.webdriver.4.10.0.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\selenium.webdriver.microsoftdriver\\17.17134.0\\selenium.webdriver.microsoftdriver.17.17134.0.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "C:\\Users\\BadreZOUIRI\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\htmlagilitypack\\1.11.50\\htmlagilitypack.1.11.50.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\selenium.webdriver\\4.10.0\\selenium.webdriver.4.10.0.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\selenium.webdriver.microsoftdriver\\17.17134.0\\selenium.webdriver.microsoftdriver.17.17134.0.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\badre.zouiri.ext\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
   "logs": []
 }

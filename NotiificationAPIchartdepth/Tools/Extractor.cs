@@ -119,6 +119,20 @@ namespace NotiificationAPIchartdepth.Tools
                             var value = cells[i].InnerText.Trim();
                             rowData.Add(new KeyValuePair<string, string>(key, value));
                         }
+
+                        // Extract the percentage value from the td with class "tp-sl-progress"
+                        var progressCell = row.SelectSingleNode("td[contains(@class, 'tp-sl-progress')]");
+                        if (progressCell != null)
+                        {
+                            var TPpercentageValue = GetPercentageTP(progressCell);
+                            var SLpercentageValue = GetPercentageSL(progressCell);
+
+                            rowData.Add(new KeyValuePair<string, string>("ProgressTP", TPpercentageValue));
+                            rowData.Add(new KeyValuePair<string, string>("ProgressSL", SLpercentageValue));
+
+
+                        }
+
                         tableData.Add(rowData);
                     }
                 }
@@ -126,6 +140,50 @@ namespace NotiificationAPIchartdepth.Tools
 
             return tableData;
         }
+
+        // Helper method to extract the percentage value from the td with class "tp-sl-progress"
+        private static string GetPercentageTP(HtmlNode progressCell)
+        {
+            var divProgress = progressCell.
+                SelectSingleNode(".//div[contains(@class, 'tp-progress')]")
+                .ChildNodes[1]
+              ;
+         
+            if (divProgress != null)
+            {
+                var styleAttribute = divProgress.Attributes["style"]?.Value;
+                var regex = new Regex(@"width:\s*(\d+)%");
+                var match = regex.Match(styleAttribute);
+                if (match.Success && match.Groups.Count == 2)
+                {
+                    return match.Groups[1].Value;
+                }
+            }
+
+            return "";
+        }
+
+        private static string GetPercentageSL(HtmlNode progressCell)
+        {
+            var divProgress = progressCell.
+                SelectSingleNode(".//div[contains(@class, 'sl-progress')]")
+                .ChildNodes[1]
+              ;
+
+            if (divProgress != null)
+            {
+                var styleAttribute = divProgress.Attributes["style"]?.Value;
+                var regex = new Regex(@"width:\s*(\d+)%");
+                var match = regex.Match(styleAttribute);
+                if (match.Success && match.Groups.Count == 2)
+                {
+                    return match.Groups[1].Value;
+                }
+            }
+
+            return "";
+        }
+
 
 
 
@@ -185,6 +243,12 @@ namespace NotiificationAPIchartdepth.Tools
                             break;
                         case "Stop loss":
                             signalData.StopLoss = value.Trim();
+                            break;
+                        case "ProgressTP":
+                            signalData.ProgressTP = value.Trim();
+                            break;
+                        case "ProgressSL":
+                            signalData.ProgressSL = value.Trim();
                             break;
 
                             // Add more cases for other keys if needed
