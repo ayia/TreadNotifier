@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NotiificationAPIchartdepth.Models;
 using NotiificationAPIchartdepth.Tools;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 
 namespace NotiificationAPIchartdepth.Controllers
 {
@@ -17,7 +15,7 @@ namespace NotiificationAPIchartdepth.Controllers
 
 
         [HttpGet(Name = "GetNotificationController")]
-        public async Task<string> GetAsync()
+        public async Task<List<SignalData>> GetAsync()
         {
 
             /*string format = "ddMMyyyyHHmm";
@@ -29,38 +27,23 @@ namespace NotiificationAPIchartdepth.Controllers
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      //  string pageUrl = "https://www.chartdepth.com/signals";
             string username = "badre.zouiri@gmail.com"; // Replace with your login credentials
             string password = "MvDNk3NC"; // Replace with your login credentials
-            StringBuilder stringBuilder = new StringBuilder();
-            var cookieContainer = await Extractor.PerformLogin(loginUrl, username, password);
+            var cookieContainer =  Extractor.GetCookieContainer();
+            if (cookieContainer==null)
+             cookieContainer = await Extractor.PerformLogin(loginUrl, username, password);
             if (cookieContainer != null)
             {
                 string html = await Extractor.GetPageHtml(pageUrl, cookieContainer);
                 List<HtmlNode> data = Extractor.ExtractTables(html);
                 var tableData = Extractor.ExtractTableData(data.ToArray()[0].OuterHtml);
 
-                todayList = Extractor.ParseToSignalDataList(tableData)
-                    .Where(xp=>xp.ProgressTP>=15 && xp.ProgressTP <= 40
-                    
-                  //  && xp.OpenTime.Date== today
+                todayList = Extractor.ParseToSignalDataList(tableData);
+               /* todayList= todayList.Where(xp=>xp.ProgressTP >20 
+                && xp.ProgressTP <= 45).ToList();*/
 
-                    ).ToList();
-               
 
-                foreach (SignalData signal in todayList)
-                {
-                    // Extract the desired properties and append them to the StringBuilder
-                    stringBuilder.Append(signal.Instrument).Append("|")
-                                 .Append(signal.Action).Append("|")
-                                 .Append(signal.OpenTime.ToString("ddMMyyyyHHmm")).Append("|")
-                                 .Append(signal.TakeProfit1).Append("|")
-                                 .Append(signal.StopLoss).Append("|")
-                                 .Append(signal.ProgressTP.ToString()).Append(";");
-
-                }
-
-              
 
             }
-            return stringBuilder.ToString();
+            return todayList;
         }
     }
 }
