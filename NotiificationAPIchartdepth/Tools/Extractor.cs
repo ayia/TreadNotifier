@@ -245,10 +245,10 @@ namespace NotiificationAPIchartdepth.Tools
                             signalData.StopLoss = value.Trim();
                             break;
                         case "ProgressTP":
-                            signalData.ProgressTP = value.Trim();
+                            signalData.ProgressTP = Double.Parse(value.Trim(),CultureInfo.InvariantCulture);
                             break;
                         case "ProgressSL":
-                            signalData.ProgressSL = value.Trim();
+                            signalData.ProgressSL = Double.Parse(value.Trim(), CultureInfo.InvariantCulture);
                             break;
 
                             // Add more cases for other keys if needed
