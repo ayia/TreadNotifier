@@ -59,9 +59,10 @@ namespace NotiificationAPIchartdepth.Tools
         }
         public static CookieContainer GetCookieContainer()
         {
-           
+            if (_cookieContainer!=null && !IsSessionEnded(_cookieContainer, new Uri("https://www.chartdepth.com/dashboard")))
                 return _cookieContainer;
-       
+            else
+                return null;
         }
 
 
@@ -72,7 +73,7 @@ namespace NotiificationAPIchartdepth.Tools
 
             foreach (Cookie cookie in cookies)
             {
-                if (cookie.Name == "session")
+                if (cookie.Name == "laravel_session_prod")
                 {
                     if (cookie.Expires != DateTime.MinValue && cookie.Expires <= DateTime.Now)
                     {
@@ -182,6 +183,12 @@ namespace NotiificationAPIchartdepth.Tools
 
 
                         }
+                        var hitCell = row.SelectSingleNode("td/i[contains(@class, 'active-icon')]");
+                        if(hitCell != null)
+                        
+                            rowData.Add(new KeyValuePair<string, string>("TP1Hit", "yes".ToUpper()));
+                        else
+                            rowData.Add(new KeyValuePair<string, string>("TP1Hit", "Nop".ToUpper()));
 
                         tableData.Add(rowData);
                     }
@@ -257,6 +264,9 @@ namespace NotiificationAPIchartdepth.Tools
                             break;
                         case "Action":
                             signalData.Action = value.Trim();
+                            break;
+                        case "TP1Hit":
+                            signalData.TP1Hit = value.Trim();
                             break;
                         case "Type":
                             signalData.Type = value.Trim();

@@ -42,7 +42,7 @@ namespace NotiificationAPIchartdepth.Controllers
 
                 todayList = Extractor.ParseToSignalDataList(tableData);
                /*  todayList= todayList.Where(xp =>xp.ProgressTP >10 
-                 && xp.ProgressTP <= 40 &&xp.OpenTime.Date== today).ToList();*/
+                 && xp.ProgressTP <= 40 ).ToList();*/
                 foreach (SignalData signal in todayList)
                 {
                     // Extract the desired properties and append them to the StringBuilder
@@ -50,6 +50,8 @@ namespace NotiificationAPIchartdepth.Controllers
                                  .Append(signal.Action).Append("|")
                                  .Append(signal.OpenTime.ToString("ddMMyyyyHHmm")).Append("|")
                                  .Append(signal.TakeProfit1).Append("|")
+                                 .Append(signal.TakeProfit2).Append("|")
+                                 .Append(signal.TP1Hit).Append("|")
                                  .Append(signal.StopLoss).Append("|")
                                  .Append(signal.ProgressTP.ToString()).Append(";");
 

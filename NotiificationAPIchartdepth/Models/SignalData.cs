@@ -13,6 +13,8 @@
         public string StopLoss { get; set; }
 
         public double ProgressTP { get; set; }
+
+        public string TP1Hit { get; set; }
         public double ProgressSL { get; set; }
 
 
