@@ -27,8 +27,9 @@ namespace NotiificationAPIchartdepth.Controllers
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      //  string pageUrl = "https://www.chartdepth.com/signals";
             string username = "badre.zouiri@gmail.com"; // Replace with your login credentials
             string password = "MvDNk3NC"; // Replace with your login credentials
-
-            var cookieContainer = await Extractor.PerformLogin(loginUrl, username, password);
+            var cookieContainer =  Extractor.GetCookieContainer();
+            if (cookieContainer==null)
+             cookieContainer = await Extractor.PerformLogin(loginUrl, username, password);
             if (cookieContainer != null)
             {
                 string html = await Extractor.GetPageHtml(pageUrl, cookieContainer);
@@ -36,8 +37,10 @@ namespace NotiificationAPIchartdepth.Controllers
                 var tableData = Extractor.ExtractTableData(data.ToArray()[0].OuterHtml);
 
                 todayList = Extractor.ParseToSignalDataList(tableData);
-               
-                 
+               /* todayList= todayList.Where(xp=>xp.ProgressTP >20 
+                && xp.ProgressTP <= 45).ToList();*/
+
+
 
             }
             return todayList;

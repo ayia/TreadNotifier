@@ -12,8 +12,8 @@
         public string TakeProfit2 { get; set; }
         public string StopLoss { get; set; }
 
-        public string ProgressTP { get; set; }
-        public string ProgressSL { get; set; }
+        public double ProgressTP { get; set; }
+        public double ProgressSL { get; set; }
 
 
         // Additional methods or constructors can be added as needed.

@@ -8,9 +8,9 @@ using System.Xml;
 
 namespace NotiificationAPIchartdepth.Tools
 {
-    public class Extractor
+    public static class Extractor
     {
-
+        private static CookieContainer _cookieContainer ;
         public static async Task<CookieContainer> PerformLogin(string loginUrl, string username, string password)
         {
             var client = new HttpClient();
@@ -30,11 +30,10 @@ namespace NotiificationAPIchartdepth.Tools
             // request.Headers.Add("Cookie", "XSRF-TOKEN=eyJpdiI6IlBRZGVQRXNpY1dVWjFLcWpOSCt0XC93PT0iLCJ2YWx1ZSI6IkJFNmZsR29vNVN1Sk02bStIeUNTVTlDSGtjbmh5djZKQTlFQndXXC9HRGZKXC9kaUpmb0xLTG9BV0xiRXVNTWtNMyIsIm1hYyI6ImIwMGUwMzM4NTkxMGNlZmUwMGJkNzM5YzA0ZTVmZDM2YmFlMDg2MjEwMTQzNmQ0Yjg1ZGJkNDkxNDQxMDI4ZjMifQ%3D%3D; lang_prod=eyJpdiI6IlhWT2FJUVFoSzBnWXlFb2l0eVZESnc9PSIsInZhbHVlIjoiY09MUXg0Y1pVMzl4WStjbXE2WHZRUT09IiwibWFjIjoiMDMxOTI3YmYyYjc1ZTk2ZTRhZGRiZGFkOWY4ZDQ1ZjFlYjIwOTYzMjlmZDZmYTViYTZmMzg0MGEyZDZiMmU1NyJ9; laravel_session_prod=eyJpdiI6InRNeVIwalNYRE5pa29VZVJMT3dIMEE9PSIsInZhbHVlIjoiNUN4cHdDZXJEcnBtVGxuK1RteThXYitGT3RPeGR4TlNYYStycTRvZjFJaXhJcTZcLzliNWVIVjNjSnhHV0ZabzYiLCJtYWMiOiIzNTEwMzZmNDc4NGE2ZjIxMzBkNmI5NGViOGEwNTNkZjEyZWYwNmQ4ZmJkYzM5MWVjNzk0NDIwNjRlMjgwZjMyIn0%3D");
             var loginResponse = await client.SendAsync(request);
 
-            // Create a new CookieContainer to store the cookies.
-            var cookieContainer = new CookieContainer();
+            _cookieContainer=new CookieContainer();
 
-            // Get the URI of the login response to associate the cookies with the correct domain.
-            var responseUri = loginResponse.RequestMessage.RequestUri;
+               // Get the URI of the login response to associate the cookies with the correct domain.
+               var responseUri = loginResponse.RequestMessage.RequestUri;
 
             // Get the Set-Cookie header(s) from the response.
             if (loginResponse.Headers.TryGetValues("Set-Cookie", out var cookieHeaders))
@@ -42,13 +41,17 @@ namespace NotiificationAPIchartdepth.Tools
                 // Parse the Set-Cookie headers and add the cookies to the CookieContainer.
                 foreach (var cookieHeader in cookieHeaders)
                 {
-                    cookieContainer.SetCookies(responseUri, cookieHeader);
+                    _cookieContainer.SetCookies(responseUri, cookieHeader);
                 }
             }
-            return cookieContainer;
+            return _cookieContainer;
 
 
 
+        }
+        public static CookieContainer GetCookieContainer()
+        {
+            return _cookieContainer;
         }
         public static async Task<string> GetPageHtml(string pageUrl, CookieContainer cookieContainer)
         {
@@ -245,10 +248,10 @@ namespace NotiificationAPIchartdepth.Tools
                             signalData.StopLoss = value.Trim();
                             break;
                         case "ProgressTP":
-                            signalData.ProgressTP = value.Trim();
+                            signalData.ProgressTP = Double.Parse(value.Trim(),CultureInfo.InvariantCulture);
                             break;
                         case "ProgressSL":
-                            signalData.ProgressSL = value.Trim();
+                            signalData.ProgressSL = Double.Parse(value.Trim(),CultureInfo.InvariantCulture);
                             break;
 
                             // Add more cases for other keys if needed
