@@ -3,14 +3,21 @@ using NotiificationAPIchartdepth.Models;
 using System.Globalization;
 using System.Net;
 using System.Net.Http.Headers;
+
 using System.Text.RegularExpressions;
-using System.Xml;
+using System;
+using System.IO;
+using System.Net;
+using Newtonsoft.Json;
+
 
 namespace NotiificationAPIchartdepth.Tools
 {
     public static class Extractor
     {
         private static CookieContainer _cookieContainer ;
+
+        public static string cookiespath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "coockies"); 
         public static async Task<CookieContainer> PerformLogin(string loginUrl, string username, string password)
         {
             var client = new HttpClient();
@@ -34,7 +41,7 @@ namespace NotiificationAPIchartdepth.Tools
 
                // Get the URI of the login response to associate the cookies with the correct domain.
                var responseUri = loginResponse.RequestMessage.RequestUri;
-
+            
             // Get the Set-Cookie header(s) from the response.
             if (loginResponse.Headers.TryGetValues("Set-Cookie", out var cookieHeaders))
             {
@@ -44,6 +51,7 @@ namespace NotiificationAPIchartdepth.Tools
                     _cookieContainer.SetCookies(responseUri, cookieHeader);
                 }
             }
+         //   SaveCookiesToFile(_cookieContainer, loginResponse.RequestMessage.RequestUri);
             return _cookieContainer;
 
 
@@ -51,8 +59,47 @@ namespace NotiificationAPIchartdepth.Tools
         }
         public static CookieContainer GetCookieContainer()
         {
-            return _cookieContainer;
+           
+                return _cookieContainer;
+       
         }
+
+
+        static bool IsSessionEnded(CookieContainer cookieContainer, Uri uri)
+        {
+      
+            CookieCollection cookies = cookieContainer.GetCookies(uri);
+
+            foreach (Cookie cookie in cookies)
+            {
+                if (cookie.Name == "session")
+                {
+                    if (cookie.Expires != DateTime.MinValue && cookie.Expires <= DateTime.Now)
+                    {
+                        return true; // Session has ended
+                    }
+                    else
+                    {
+                        return false; // Session is still active
+                    }
+                }
+            }
+
+            return true; // If no session cookie is found, consider the session as ended
+        }
+
+        static void SaveCookiesToFile(CookieContainer cookieContainer, Uri url)
+        {
+            CookieCollection cookies = cookieContainer.GetCookies(url);
+
+            using (StreamWriter file = File.CreateText(cookiespath))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, cookies);
+            }
+        }
+
+
         public static async Task<string> GetPageHtml(string pageUrl, CookieContainer cookieContainer)
         {
             using (var httpClientHandler = new HttpClientHandler() { CookieContainer = cookieContainer })
@@ -116,7 +163,7 @@ namespace NotiificationAPIchartdepth.Tools
                     var cells = row.SelectNodes("td");
                     if (cells != null && cells.Count >= headerCells.Count)
                     {
-                        for (int i = 0; i < headerCells.Count; i++)
+                        for (int i = 0; i < cells.Count; i++)
                         {
                             var key = headerCells[i].InnerText.Trim();
                             var value = cells[i].InnerText.Trim();
@@ -251,7 +298,7 @@ namespace NotiificationAPIchartdepth.Tools
                             signalData.ProgressTP = Double.Parse(value.Trim(),CultureInfo.InvariantCulture);
                             break;
                         case "ProgressSL":
-                            signalData.ProgressSL = value.Trim();
+                            signalData.ProgressSL = Double.Parse(value.Trim(), CultureInfo.InvariantCulture);
                             break;
 
                             // Add more cases for other keys if needed
