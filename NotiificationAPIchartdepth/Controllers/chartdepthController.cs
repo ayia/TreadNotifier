@@ -44,6 +44,7 @@ namespace NotiificationAPIchartdepth.Controllers
                  todayList= todayList.Where(xp =>xp.ProgressTP > 0 ).ToList();
                 foreach (SignalData signal in todayList)
                 {
+
                     // Extract the desired properties and append them to the StringBuilder
                     stringBuilder.Append(signal.Instrument).Append("|")
                                  .Append(signal.Action).Append("|")
