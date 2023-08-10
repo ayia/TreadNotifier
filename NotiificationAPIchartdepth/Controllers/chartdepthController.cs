@@ -52,6 +52,7 @@ namespace NotiificationAPIchartdepth.Controllers
                                  .Append(signal.TakeProfit2).Append("|")
                                  .Append(signal.TP1Hit).Append("|")
                                  .Append(signal.StopLoss).Append("|")
+                                 .Append(signal.OpenPrice).Append("|")
                                  .Append(signal.ProgressTP.ToString()).Append(";");
 
                 }
